@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
+import { RestCard } from "../../components/RestCard";
 
 export function CreateRest() {
   const [form, setForm] = useState({
@@ -13,6 +14,8 @@ export function CreateRest() {
 
   const [Rest, setRest] = useState("");
 
+  const [addRest, setAddRest] = useState(false);
+
   const navigate = useNavigate();
 
   function handleChange(e) {
@@ -20,10 +23,14 @@ export function CreateRest() {
     console.log(form);
   }
 
+  function handleAddRest() {
+    setAddRest(true);
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post("https://ironrest.herokuapp.com/rarena-project02", form);
+      await axios.post("https://ironrest.herokuapp.com/rarena-project2", form);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -74,6 +81,26 @@ export function CreateRest() {
               name="restAvaliation"
               onChange={handleChange}
             />
+          </div>
+          <div>
+            <button type="button" onClick={handleAddRest}>
+              Adicionar restaurante
+            </button>
+
+            {/* {addRest && (
+              <div>
+                <h2>Some content</h2>
+              </div>
+            )} */}
+
+            {addRest && (
+              <RestCard
+                image="https://www.peninsula.com/-/media/images/paris/new/dining/loiseau-blanc/ppr-oiseau-blanc-interior-evening-1074/ppr-oiseaublanc.png?mw=987&hash=58953560C2A423F8B8D6B9EE0D7271CC"
+                title={form.restName}
+                type={form.restType}
+                avaliation={form.restAvaliation}
+              />
+            )}
           </div>
 
           <button
