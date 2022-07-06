@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 export function RestPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [rest, setRest] = useState({});
   console.log(rest);
@@ -22,14 +23,42 @@ export function RestPage() {
     fetchRest();
   }, []);
 
+  async function handleDelete() {
+    try {
+      await axios.delete(
+        `https://ironrest.herokuapp.com/rarena-project2/${id}`
+      );
+
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <>
-      <h1>{`Restaurantes do ${rest.owner}`} </h1>
-      <ul>
-        <li> Nome do restaurante: {rest.restName} </li>
-        <li> Tipo do Restaurante: {rest.restType} </li>
-        <li> Avaliação do Restaurante: {rest.restAvaliation} </li>
-      </ul>
+      <div className="card" style={{ width: "18rem" }}>
+        <h5 className="card-title">{`Restaurantes do ${rest.owner}`} </h5>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">
+            {" "}
+            Nome do restaurante: {rest.restName}{" "}
+          </li>
+          <li className="list-group-item">
+            {" "}
+            Tipo do Restaurante: {rest.restType}{" "}
+          </li>
+          <li className="list-group-item">
+            Avaliação do Restaurante: {rest.restAvaliation}
+          </li>
+        </ul>
+        <Link to={`/editrest/${id}`} className="btn btn-primary">
+          Editar
+        </Link>
+        <button onClick={handleDelete} className="btn btn-danger">
+          Excluir
+        </button>
+      </div>
     </>
   );
 }

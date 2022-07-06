@@ -10,7 +10,9 @@ export function HomeCard(props) {
           alt="restaurant"
         />
         <div className="card-body">
-          <h5 className="card-title">{`Restaurante do ${props.owner}`} </h5>
+          <h5 className="card-title">
+            {`Restaurante favorito do ${props.owner}`}{" "}
+          </h5>
           <Link to={`/rest/${props.id}`} class="btn btn-primary">
             Veja os restaurantes selecionados
           </Link>

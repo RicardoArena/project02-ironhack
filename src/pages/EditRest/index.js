@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { RestCard } from "../../components/RestCard";
 
-export function CreateRest() {
+export function EditRest() {
   const [form, setForm] = useState({
     owner: "",
     restName: "",
@@ -15,6 +15,23 @@ export function CreateRest() {
   const [addRest, setAddRest] = useState(false);
 
   const navigate = useNavigate();
+  const { id } = useParams();
+
+  useEffect(() => {
+    async function fetchRest() {
+      try {
+        const response = await axios.get(
+          `https://ironrest.herokuapp.com/rarena-project2/${id}`
+        );
+
+        setForm({ ...response.data });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    fetchRest();
+  }, []);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,7 +45,14 @@ export function CreateRest() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post("https://ironrest.herokuapp.com/rarena-project2", form);
+      const clone = { ...form };
+
+      delete clone._id;
+
+      await axios.put(
+        `https://ironrest.herokuapp.com/rarena-project2/${id}`,
+        clone
+      );
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -38,7 +62,7 @@ export function CreateRest() {
     <>
       <Toaster />
       <div>
-        <h1>Avalie seus restaurantes prediletos!</h1>
+        <h1>Edite seus restaurantes prediletos!</h1>
 
         <form onSubmit={handleSubmit} className="d-flex flex-column">
           <div className="d-flex flex-column m-5">
@@ -104,7 +128,7 @@ export function CreateRest() {
             className="btn btn-success"
             type="submit"
           >
-            Enviar
+            Editar
           </button>
         </form>
       </div>
