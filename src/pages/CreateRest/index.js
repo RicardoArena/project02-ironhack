@@ -89,7 +89,7 @@ export function CreateRest() {
           <div>
             <button
               className="btn btn-primary btn-lg"
-              // type="button"
+              type="button"
               onClick={handleAddRest}
             >
               Adicionar restaurante

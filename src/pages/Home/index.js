@@ -33,13 +33,13 @@ export function Home() {
           </Link>
         </div>
       </div>
-
-      <div>
-        <h2>Restaurantes da comunidade:</h2>
-
+      <h2 className="mx-3 my-3">Restaurantes da comunidade:</h2>
+      <div className="d-flex flex-wrap mx-3 my-3 gap-5 ">
         {rests.map((currentElement) => {
           return (
-            <HomeCard owner={currentElement.owner} id={currentElement._id} />
+            <div className="d-flex flex-wrap mx3 my3">
+              <HomeCard owner={currentElement.owner} id={currentElement._id} />
+            </div>
           );
         })}
       </div>

@@ -3,6 +3,8 @@ import { Home } from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import { RestPage } from "./pages/RestPage";
 import { EditRest } from "./pages/EditRest";
+import "./assets/app.css";
+
 function App() {
   return (
     <>
