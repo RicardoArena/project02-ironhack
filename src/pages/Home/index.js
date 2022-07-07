@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { HomeCard } from "../../components/HomeCards";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { NavBar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer";
 
 export function Home() {
   const [rests, setRests] = useState([]);
@@ -18,10 +20,18 @@ export function Home() {
 
   return (
     <>
-      <div>
-        <h1>
-          <Link to="/createrest">Adicione seus restaurantes favoritos!</Link>
-        </h1>
+      <NavBar />
+      <div className="container">
+        <div className="text-center">
+          <h1 className="mt-5">
+            Crie uma coleção com seus restaurantes favoritos!
+          </h1>
+          <Link to="/createrest" className="lead">
+            <button className="btn btn-success">
+              Clique aqui para começar
+            </button>
+          </Link>
+        </div>
       </div>
 
       <div>
@@ -33,6 +43,7 @@ export function Home() {
           );
         })}
       </div>
+      <Footer />
     </>
   );
 }

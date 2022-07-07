@@ -1,6 +1,7 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { NavBar } from "../../components/Navbar";
 
 export function RestPage() {
   const { id } = useParams();
@@ -37,6 +38,7 @@ export function RestPage() {
 
   return (
     <>
+      <NavBar />
       <div className="card" style={{ width: "18rem" }}>
         <h5 className="card-title">{`Restaurantes do ${rest.owner}`} </h5>
         <ul className="list-group list-group-flush">

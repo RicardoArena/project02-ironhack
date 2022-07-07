@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { RestCard } from "../../components/RestCard";
+import { NavBar } from "../../components/Navbar";
 
 export function EditRest() {
   const [form, setForm] = useState({
@@ -61,6 +62,7 @@ export function EditRest() {
   return (
     <>
       <Toaster />
+      <NavBar />
       <div>
         <h1>Edite seus restaurantes prediletos!</h1>
 

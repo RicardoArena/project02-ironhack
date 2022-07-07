@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { RestCard } from "../../components/RestCard";
+import { NavBar } from "../../components/Navbar";
 
 export function CreateRest() {
   const [form, setForm] = useState({
@@ -11,6 +12,10 @@ export function CreateRest() {
     restType: "",
     restAvaliation: "",
   });
+
+  // const [rest, setRest] = useState({
+  //   favRests: [],
+  // });
 
   const [addRest, setAddRest] = useState(false);
 
@@ -37,6 +42,7 @@ export function CreateRest() {
   return (
     <>
       <Toaster />
+      <NavBar />
       <div>
         <h1>Avalie seus restaurantes prediletos!</h1>
 
@@ -82,8 +88,8 @@ export function CreateRest() {
           </div>
           <div>
             <button
-              className="btn btn-primary"
-              type="button"
+              className="btn btn-primary btn-lg"
+              // type="button"
               onClick={handleAddRest}
             >
               Adicionar restaurante
@@ -101,7 +107,7 @@ export function CreateRest() {
 
           <button
             onClick={handleSubmit}
-            className="btn btn-success"
+            className="btn btn-success btn-lg"
             type="submit"
           >
             Enviar
