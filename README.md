@@ -7,4 +7,4 @@ As this is a project using only front end technology, no backend structure was u
 
 The site basically consists of the possibility for the user to create, edit and save their collection of favorite restaurants.
 
-The site can be tested [here](https://mytoprestaurants.netlify.app/)
+The site can be tested [here](https://my-top-restaurants.netlify.app/)
