@@ -5,9 +5,7 @@ export function NavBar() {
     <>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="#">
-            My TOP Restaurants
-          </a>
+          <span class="navbar-brand">My TOP Restaurants</span>
           <button
             class="navbar-toggler"
             type="button"

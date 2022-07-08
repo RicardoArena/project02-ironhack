@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { RestCard } from "../../components/RestCard";
 import { NavBar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer";
 
 export function EditRest() {
   const [form, setForm] = useState({
@@ -54,7 +55,7 @@ export function EditRest() {
         `https://ironrest.herokuapp.com/rarena-project2/${id}`,
         clone
       );
-      navigate("/");
+      navigate(`/rest/${id}`);
     } catch (err) {
       console.log(err);
     }
@@ -115,14 +116,14 @@ export function EditRest() {
               Adicionar restaurante
             </button>
 
-            {addRest && (
+            {/* {addRest && (
               <RestCard
                 image="https://wesco.com.br/wp-content/uploads/2019/08/tres-razoes-que-deixam-os-donos-de-restaurantes-acordados-noite-e-tres-curas.jpg"
                 title={form.restName}
                 type={form.restType}
                 avaliation={form.restAvaliation}
               />
-            )}
+            )} */}
           </div>
 
           <button
@@ -134,6 +135,7 @@ export function EditRest() {
           </button>
         </form>
       </div>
+      <Footer />
     </>
   );
 }

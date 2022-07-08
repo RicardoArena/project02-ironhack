@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { RestCard } from "../../components/RestCard";
 import { NavBar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer";
 
 export function CreateRest() {
   const [form, setForm] = useState({
@@ -114,6 +115,7 @@ export function CreateRest() {
           </button>
         </form>
       </div>
+      <Footer />
     </>
   );
 }

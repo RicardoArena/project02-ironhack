@@ -2,6 +2,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { NavBar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer";
 
 export function RestPage() {
   const { id } = useParams();
@@ -61,6 +62,7 @@ export function RestPage() {
           Excluir
         </button>
       </div>
+      <Footer />
     </>
   );
 }

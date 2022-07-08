@@ -1,9 +1,6 @@
 footer {
   display: flex;
   justify-content: space-evenly;
-  margin: 1px;
-  padding: 10px;
-  margin-top: 500px;
   background-color: #002a38;
   border: 1px solid #725118;
   border-radius: 12px;
@@ -11,11 +8,16 @@ footer {
   font-size: 1em;
   line-height: 1.8;
   font-family: Menlo, monospace;
+  padding: 1px;
+  height: auto;
+  margin-top: 100px;
 }
 
 ul {
-  flex-direction: row;
-  flex-wrap: nowrap;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 @media (min-width: 500px) {
